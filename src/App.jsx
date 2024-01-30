@@ -3,6 +3,12 @@ import './App.css'
 import { fetchDataFromApi } from './utils/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { homeSliceAction } from './store/homeSlice';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './pages/home/Home';
+import Detail from './pages/detail/Detail';
+import SearchResult from './pages/searchResult/SearchResult';
+import Explore from './pages/explore/Explore';
+import PageNotFount from './pages/404/PageNotFount';
 
 
 function App() {
@@ -24,10 +30,15 @@ function App() {
 
 
   return (
-    
-
-      <h1 style={{color: 'white'}}>FILM VISTA {url?.total_pages}</h1>
-    
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/:mediaType/:id' element={<Detail/>}/>
+          <Route path='/search/:query' element={<SearchResult/>}/>
+          <Route path='/explore/:mediaType' element={<Explore/>}/>
+          <Route path='*' element={<PageNotFount/>}/>
+        </Routes>
+      </BrowserRouter>
   )
 }
 
