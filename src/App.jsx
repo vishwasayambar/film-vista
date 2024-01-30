@@ -8,7 +8,7 @@ import Home from './pages/home/Home';
 import Detail from './pages/detail/Detail';
 import SearchResult from './pages/searchResult/SearchResult';
 import Explore from './pages/explore/Explore';
-import PageNotFount from './pages/404/PageNotFount';
+import PageNotFound from './pages/404/PageNotFound';
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
           <Route path='/:mediaType/:id' element={<Detail/>}/>
           <Route path='/search/:query' element={<SearchResult/>}/>
           <Route path='/explore/:mediaType' element={<Explore/>}/>
-          <Route path='*' element={<PageNotFount/>}/>
+          <Route path='*' element={<PageNotFound/>}/>
         </Routes>
       </BrowserRouter>
   )
